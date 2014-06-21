@@ -4,7 +4,7 @@
 #Tealeaf - Intro - lesson 1
 #
 #Author: Justin Pai
-#Date: June 6 14
+#Date: June 21 14
 #Ver: 0.1
 
 require 'pry'
@@ -26,11 +26,12 @@ end
 
 #return a new board
 def new_board
-#the board array, true: the block is taken; false: the block is not taken
-#the order for the array value is referring to the block location as following:
-#[r0-c0, r0-c1, r0-c2, r1-c0, r1-c1, r1-c2, r2-c0, r2-c1, r2-c2]
-board_array = [NO_ONE_WIN, NO_ONE_WIN, NO_ONE_WIN, NO_ONE_WIN, NO_ONE_WIN, 
-  NO_ONE_WIN, NO_ONE_WIN, NO_ONE_WIN, NO_ONE_WIN]
+  #the board array, true: the block is taken; false: the block is not taken
+  #the order for the array value is referring to the block location as following:
+  #[r1-c1, r1-c2, r1-c3, r2-c1, r2-c2, r2-c3, r3-c1, r3-c2, r3-c3]
+  board_array = []
+  (0..8).each {|v| board_array[v] = NO_ONE_S}
+  board_array
 end
 
 
@@ -149,10 +150,10 @@ def draw_board(board_arr)
     case 
     when v == NO_ONE_S
       "   "
-    when v == PLAY_S
-      " O "
-    when v == COM_S
+    when v == PLAY_S #player is assigned to "X"
       " X "
+    when v == COM_S #computer is assigned to "O"
+      " O "
     end
   end
   #drawing the board now
